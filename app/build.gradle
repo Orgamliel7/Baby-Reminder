@@ -1,16 +1,20 @@
+// \baby\app\build.gradle
 plugins {
     id 'com.android.application'
 }
 
 android {
-    compileSdkVersion 33
+    namespace 'com.example.baby'
+    compileSdk 34
+
     defaultConfig {
         applicationId "com.example.baby"
-        minSdkVersion 23
-        targetSdkVersion 33
+        minSdk 24
+        targetSdk 34
         versionCode 1
         versionName "1.0"
     }
+
     buildTypes {
         release {
             minifyEnabled false
@@ -26,5 +30,6 @@ android {
 dependencies {
     implementation 'androidx.appcompat:appcompat:1.6.1'
     implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
-    implementation 'androidx.core:core:1.10.1'
+    implementation 'androidx.core:core:1.12.0'
+    implementation 'com.google.android.material:material:1.10.0'
 }

@@ -1,13 +1,16 @@
-// app/src/main/java/com/example/babyreminder/MainActivity.java
+// \baby\app\src\main\java\com\example\baby\MainActivity.java
 package com.example.baby;
 
 import android.Manifest;
 import android.app.AlertDialog;
+import android.content.Intent; // Add this import
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.os.Build;
 import android.os.Bundle;
 import android.widget.TextView;
+
+// Fix these imports
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
@@ -30,7 +33,7 @@ public class MainActivity extends AppCompatActivity {
         requestPermissions();
 
         // Check if we need to show the baby dialog
-        if (getIntent().getBooleanExtra("showBabyDialog", false)) {
+        if (getIntent() != null && getIntent().getBooleanExtra("showBabyDialog", false)) {
             showBabyDialog();
         }
 
@@ -42,7 +45,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onNewIntent(Intent intent) {
         super.onNewIntent(intent);
 
-        if (intent.getBooleanExtra("showBabyDialog", false)) {
+        if (intent != null && intent.getBooleanExtra("showBabyDialog", false)) {
             showBabyDialog();
         }
     }
