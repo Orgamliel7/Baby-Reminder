@@ -1,4 +1,6 @@
 // \baby\app\src\main\java\com\example\baby\MainActivity.java
+// This is the main activity that handles permissions, shows the current status,
+// and displays the 'Baby Check' dialog when requested.
 package com.example.baby;
 
 import android.Manifest;

@@ -1,4 +1,5 @@
 // \baby\app\src\main\java\com\example\baby\BluetoothReceiver.java
+// automatically react to Bluetooth connection and disconnection events on the device.
 package com.example.baby;
 
 import android.bluetooth.BluetoothDevice;
@@ -38,6 +39,10 @@ public class BluetoothReceiver extends BroadcastReceiver {
             if (deviceName != null && TARGET_DEVICE_NAMES.contains(deviceName)) {
                 if (BluetoothDevice.ACTION_ACL_CONNECTED.equals(action)) {
                     Log.d(TAG, "Connected to target device: " + deviceName);
+
+                    // Send notification about the connection
+                    NotificationHelper.showConnectionNotification(context, deviceName);
+
                     // Car connected - show dialog in MainActivity
                     Intent dialogIntent = new Intent(context, MainActivity.class);
                     dialogIntent.putExtra("showBabyDialog", true);
